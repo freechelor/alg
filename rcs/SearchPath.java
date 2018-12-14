@@ -18,6 +18,7 @@ public class SearchPath {
 		{1, 0, 0, 1, 1, 0, 1, 0 }
 	};
 
+	// TODO : how to solve this problem with BFS approach
 	static boolean isValid(int[][] map, int r, int c) {
 		if(map == null) return false;
 		if(r>=map.length||c>=map[0].length||map[r][c]!=0) return false;
