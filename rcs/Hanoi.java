@@ -1,6 +1,7 @@
 package alg.rcs;
 
 import java.util.Stack;
+import java.util.Iterator;
 
 public class Hanoi {
 
@@ -18,26 +19,35 @@ public class Hanoi {
 			dst.slideOnto(buf.slideOff());
 		}
 		if(n>=3) {
+			moveDisks(n-1, org, dst, buf);
 			Integer disk = org.slideOff();
-			buf.slideOnto(disk);
-			moveDisks(n-1, org, buf, dst);
+			dst.slideOnto(disk);
+			moveDisks(n-1, buf, org, dst);
 		}
 	}
 
 	public static void main(String args[]) {
-		int diskNum = 4;
-		Tower org = new Tower();
+		int diskNum = 7;
+		Tower org = new Tower("ORG");
 		for(int i =0; i < diskNum; i++) {
 			org.s.push(new Integer(i));
 		}
-		Tower buf = new Tower();
-		Tower dst = new Tower();
+		Tower buf = new Tower("BUF");
+		Tower dst = new Tower("DST");
+		org.print();
+		buf.print();
+		dst.print();
 		moveDisks(diskNum, org, buf, dst);
+		org.print();
+		buf.print();
+		dst.print();
 	}
 }
 
 class Tower {
-	public Tower() {
+	String name;
+	public Tower(String n) {
+		this.name = n;
 	}
 	public Stack<Integer> s = new Stack<>();
 
@@ -47,5 +57,13 @@ class Tower {
 
 	public void slideOnto(Integer disk) {
 		s.push(disk);
+	}
+	public void print() {
+		Iterator itr = s.iterator();
+		System.out.println(name + " : " );
+		while(itr.hasNext()){
+			System.out.print(itr.next() + "	"); 
+		}
+		System.out.println();
 	}
 }
