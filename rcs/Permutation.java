@@ -72,6 +72,11 @@ public class Permutation {
 		return;
 	}
 
+
+	//1221
+	ArrayList<String> revisitPerms() {
+	}
+
 	public static void main(String args[]) {
 		Permutation p = new Permutation();
 //		p.permute(args[0], 0, args[0].length()-1);
