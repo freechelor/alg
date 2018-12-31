@@ -20,37 +20,31 @@ public class Boxes {
 	}
 
 	static boolean checkValid(Box n, Box p) {
+		System.out.println(n + ", previous = " + p);
 		if(p==null) return true;
 		if(n.width<p.width&&n.depth<p.depth) return true;
 		return false;
 	}
-/*
-	static int getMax(List<Box> list, int idx, Box prev) {
-		for(int i = idx; i < list.size(); i++) {
-			Box cur = (Box)list.get(i);
-			if(checkValid(cur, prev)) {
-				int v1 = getMax(list, i+1, prev);
-				int v2 = cur.height+getMax(list, i+1, cur);
-				max = Math.max(v1, v2);
+
+	static void getMax(List<Box> list, int idx, Box prev, int sum) {
+		if(idx==list.size()) {
+			if(max<sum) {
+				max = sum;
+				System.out.println("ADD to RESULT : " + prev + " , SUM : " + sum);
+			} 
+		} else {
+			for(int i = idx; i < list.size(); i++) {
+				Box cur = (Box)list.get(i);
+				if(checkValid(cur, prev)) {
+					getMax(list, i+1, prev, sum);
+					getMax(list, i+1, cur, sum+cur.height);
+				} else {
+					getMax(list, i+1, prev, sum);
+				}
 			}
 		}
-		return max;
 	}
-*/
 
-	static int getMax(List<Box> list, int idx, Box prev) {
-		Box cur = null;
-		if(idx<list.size()) cur = (Box)list.get(idx);
-		else return max;
-		if(checkValid(cur, prev)) {
-			int v1 = getMax(list, idx+1, prev);
-			int v2 = cur.height+getMax(list, idx+1, cur);
-			max = Math.max(v1, v2);
-		} else {
-			max += getMax(list, idx+1, prev); 
-		}
-		return max;
-	}
 
 	public static void main(String[] args) {
 		// 1. first sort with one of dimensions
@@ -63,7 +57,8 @@ public class Boxes {
 		System.out.println();
 		// 2. check if one can be on the top of the previous one
 		// if ok, add it to result list, if not, skip because anyway you can not chnage the order already sorted in height
-		System.out.println(getMax(list, 0, null));
+		getMax(list, 0, null, 0);
+		System.out.println(max);
 
 /*		System.out.println();
 		System.out.println("Sort1");
