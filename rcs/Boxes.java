@@ -1,3 +1,8 @@
+/**
+ * TODO : 
+ * 1. Time/Space Complexity
+ * 2. How can I make getMax method with return type integer
+ */
 package alg.rcs;
 
 import java.util.Comparator;
@@ -44,8 +49,20 @@ public class Boxes {
 			}
 		}
 	}
+/*
+	static int getMax(List<Box> list, int idx, Box prev) {
+		if(idx==list.size()) {
+		} else {
+			for(int i = idx, i < list.size(); i++) {
+				Box cur = (Box)list.get(i);
+				if(checkValid(cur,prev)) {
+					sum += getMax(list, i+1, prev);
 
-
+				}
+			}
+		}
+	}
+*/
 	public static void main(String[] args) {
 		// 1. first sort with one of dimensions
 		List<Box> list = getBoxes();
