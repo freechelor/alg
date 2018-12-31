@@ -1,3 +1,4 @@
+// TO THINK ABOUT : Time/Space Complexity
 package alg.rcs;
 
 import java.util.*;
@@ -58,6 +59,8 @@ public class Permutation {
 			result.add(pre);
 		} else {
 			Object[] keys = tbl.keySet().toArray();
+			// TO THINK ABOUT : when picking one of duplicte elements in string, this will prevent you from selecting the same element in the same position
+			// because you have to be able to choose just one of keys in the hashtable
 			for(int i = 0; i < keys.length; i++ ) {
 				keys = tbl.keySet().toArray();
 				Character c = (Character)keys[i];
@@ -74,7 +77,22 @@ public class Permutation {
 
 
 	//1221
-	ArrayList<String> revisitPerms() {
+	private void revisitPermDups(String pre, int len, ArrayList<String> result) {
+		if(pre.length()==len) {
+			result.add(pre);
+			// NEED return? why don't need return?
+		} else {
+			Object[] keys = tbl.keySet().toArray();
+			for(int i = 0; i < keys.length; i++) {
+				Character c = (Character)keys[i];	
+				int cnt = tbl.get(c)==null? 0 : (int)tbl.get(c);
+				if(cnt > 0) {
+					tbl.put(c, cnt-1);
+					revisitPermDups(pre+c, len, result);
+					tbl.put(c, cnt);
+				}
+			}
+		}
 	}
 
 	public static void main(String args[]) {
