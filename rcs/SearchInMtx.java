@@ -59,11 +59,12 @@ public class SearchInMtx {
 			return null;
 		}
 		Pair mid = getMid(s, e);
+		System.out.println("middle : " + mid.r + " , " + mid.c);
 		if(arr[mid.r][mid.c]==tg) return new Pair(mid.r, mid.c);
 		if(arr[mid.r][mid.c]<tg && mid.r+1 < arr.length && mid.c+1 < arr[0].length && arr[mid.r+1][mid.c+1] > tg) {
 			Pair r1 = getPos(arr, tg, new Pair(mid.r+1, s.c), new Pair(e.r, mid.c));
 			if(r1 != null) return r1;
-			Pair r2 = getPos(arr, tg, new Pair(s.r, mid.c ), new Pair(mid.r, e.c));
+			Pair r2 = getPos(arr, tg, new Pair(s.r, mid.c+1 ), new Pair(mid.r, e.c));
 			if(r2 != null) return r2;
 			System.out.println("null 3");
 			return null;
@@ -97,8 +98,8 @@ public class SearchInMtx {
 	}
 
 	static boolean isReverse(Pair a, Pair b) {
-		if(a.r>b.r||a.c>b.c) return false;
-		return true;
+		if(a.r>b.r||a.c>b.c) return true;
+		return false;
 	}
 
 	public static void main(String[] args) {
