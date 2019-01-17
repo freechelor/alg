@@ -43,6 +43,7 @@ public class Circular {
 	//move one pointer slower by 1 and move another pointer faster by 2
 	// if the two meet somewhere it forms loop TODO : what about infinity case?
 	// in the case, to find entry point, we need to move k+a times from the point where they meet
+	// TC : O(n), SC : O(1)
 	public static Node getEntryPoint2(Node s) {
 		// fist find the point
 		Node p;	
@@ -55,12 +56,12 @@ public class Circular {
 			fh = fh.next.next;
 		} while(sh!=null&fh.next!=null&fh!=sh);
 		if(fh!=sh) return null;
-		p = fh;
-		// move the point k+a 
-		for(int i = 0; i < cnt; i++) {
-			p = p.next;
+
+		while(s!=sh) {
+			s = s.next;
+			sh = sh.next;
 		}
-		return p;
+		return s;
 				
 	}	
 
@@ -78,6 +79,8 @@ public class Circular {
 		Node n10 = new Node(10);
 		Node n11 = new Node(11);
 		Node n12 = new Node(12);
+		Node n13 = new Node(13);
+		Node n14 = new Node(14);
 		n1.next = n2;
 		n2.next = n3;
 		n3.next = n4;
@@ -88,7 +91,8 @@ public class Circular {
 		n8.next = n9;
 		n9.next = n10;
 		n10.next = n11;
-		n11.next = n6;
+		n11.next = n12;
+		n12.next = n9;
 
 		Node result;
 		System.out.println(result=getEntryPoint(n1));
