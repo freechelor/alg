@@ -55,7 +55,36 @@ public class Intersection {
 	// so, go up till the end of each list and check if they are the same
 	//
 	public static Node getIntersectedNode(Node f, Node s) {
-		return null;
+		int flen = 0;
+		int slen = 0;
+		Node flast = f;
+		Node slast = s;
+		while(flast.next!=null) {
+			flast = flast.next;
+			flen++;
+		}
+		while(slast.next!=null) {
+			slast = slast.next;
+			slen++;
+		}
+		if(flast!=slast) return null;
+		int diff;
+		if(flen>slen) {
+			diff = flen-slen;
+			while(diff-->0) {
+				f = f.next;
+			}
+		} else if(slen>flen) {
+			diff = slen-flen;
+			while(diff-->0) {
+				s = s.next;
+			}
+		}
+		while(s!=f) {
+			s = s.next;
+			f = f.next;
+		}
+		return s;
 	}
 
 	public static void main(String[] args) {
@@ -90,11 +119,15 @@ public class Intersection {
 		n12.next = n13;
 		n13.next = n14;
 		n14.next = n15;
-		n15.next = n16;
-		n16.next = n17;
+		n15.next = n6;
 	
 		Node result;
 		System.out.println(result=getIntersectedNode2(n1, n11));
+		if(result!=null) System.out.println(result.value);
+		if(n4.equals(n14)) System.out.println("Equals");
+		else System.out.println("Different");
+
+		System.out.println(result=getIntersectedNode(n1, n11));
 		if(result!=null) System.out.println(result.value);
 		if(n4.equals(n14)) System.out.println("Equals");
 		else System.out.println("Different");
