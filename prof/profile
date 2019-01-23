@@ -28,3 +28,27 @@ MAKE THEM UNDERSTAND WHO I AM IN TECHNICAL VIEW
 SP/WP
 - HOW TO MAKE EFFORTS TO IMPROVE WP
 -> good strategy : hold back when I talk to senior, --> so I try to make a presentation or sessions to share ideas
+
+
+=== merge ==
+I have been working as an software engineer for about 18 years.
+
+I've worked for several business domains such as location service, cloud printing, private app store service, home network system, a kind of IoT service, equipment(router, switch, etc.) monitoring system.    // is this good approach to list every thing that I have experienced
+
+For most of times in my career, I used Java, even though now I'm working with C# on .NET Framework and I worked as a back-end software engineer.
+I used RDBMS for most of projects that I was involved in, but I'm interested in MongoDB and ElasticSearch, so I gave it a shot(Can I put this in, or is it better to just remove out, or do I need some small projects to apply them to).
+And I had chances to work on IaaS such as AWS and Azure for some of projects.
+
+I'm very interested in Big Data, even though I hardly have had chances to work in that kind of fields.
+Because when I did cell tower projects, I collected a lot of data from Samsung smart phones out there to calculate cell tower location.
+blabla~
+
+And, I'm also interested in IoT service. Actually, I worked for home network service for a long time and long time ago.
+In the service, basically, I developed the server that routed packet among devices. For example, it sent control messages from wall pad by users to devices such as gateway or neighbor's wall pad or relay message from the entrance of apartments to wall pad.
+and users could control light bulb, gas valve, curtains on windows.
+However, we didn't make it, because bla bla~
+
+
+
+
+TODO: to be ready to Go Deeper about the projects when you're asked to do
