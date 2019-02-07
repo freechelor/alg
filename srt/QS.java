@@ -22,8 +22,14 @@ public class QS {
 	public static void qsort(Integer[] arr, int s, int e) {
 		int p = e;
 		qsort(p, arr, s, e);
+
+		//int p = (s+e)/2;
+		//qsortMiddle(p, arr, s, e);
 	}
 
+	// pick an element at the end of array as a pivot 
+	// TC : O(n log n) : when a pivot is chosen, we have to compare all elements with the pivot in every turn
+	// in every turn, we sort 
 	public static void qsort(int p, Integer[] arr, int s, int e) {
 		if(s>e) return;
 		int norm = s;
@@ -41,6 +47,23 @@ public class QS {
 		arr[norm] = tmp;
 		qsort( norm-1, arr, s, norm-1);
 		qsort( e, arr, norm+1, e);
+	}
+
+	// TODO : pick an element at the middle of array as a pivot 
+	public static void qsortMiddle(int p, Integer[] arr, int s, int e) {
+		if(s>e) return;
+		int norm = s;
+		for(int i = s; i < e; i++ ) {
+			if(arr[p]>arr[i]) {
+				int tmp = arr[i];
+				arr[i] = arr[norm];
+				arr[norm] = tmp;
+				norm++;	
+			} else {
+			}
+		}
+		qsortMiddle( norm-1, arr, s, norm-1);
+		qsortMiddle( e, arr, norm+1, e);
 	}
 
 	public static void main(String[] args) {
