@@ -30,6 +30,7 @@ public class LRU {
 			deq.addFirst(p);
 		} else {
 			if(deq.size()>=MAX) {
+				map.remove(deq.getLast());
 				deq.removeLast();
 			}
 			map.put(p.key, p);
