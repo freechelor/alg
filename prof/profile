@@ -25,9 +25,46 @@ MAKE THEM UNDERSTAND WHO I AM IN TECHNICAL VIEW
 -SPECIALTY
 -EXPERTISE
 
+EXPERIENCE
+[TVIEW]
+- why?
+we were providing video surveillance service streaming live and recorded videos. 
+so, it was using a lot of storage space to save all of the user videos with reliabilty.
+we were storing 1 original and 1 copy videos.
+we decided introducing distributed file system, DFS through proof of concept, which could reduce storage consumption to 70%.
+we had to change our system structure to make the most use of DFS.
+I led the project,
+
+- what?
+- how?
+- result
+- lessons learned
+
+[CELL TOWER]
+- why?
+- what?
+- how?
+- result
+- lessons learned
+
+[CLOUD PRINTING]
+- why?
+- what?
+- how?
+- result
+- lessons learned
+
+[HOMEVITA]
+- why?
+- what?
+- how?
+- result
+- lessons learned
+
 SP/WP
 - HOW TO MAKE EFFORTS TO IMPROVE WP
 -> good strategy : hold back when I talk to senior, --> so I try to make a presentation or sessions to share ideas
+e.g. I suggested that we'd better make some documents because workflows are so complicated and nobody seems to understand entire stories . But, they're not willing to do that. However, I couldn't insist that any more. So, I made some setup using atlassian confluence and demonstrate some features to show how easy and convenient it will be in the end.
 
 
 === merge ==
