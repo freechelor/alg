@@ -18,26 +18,31 @@ import java.util.Stack;
 import java.util.Queue;
 
 public class MyHashByArray {
-	private static int SIZE = 100;
+	private static int SIZE = 99999;
 	static List[] idx = new ArrayList[SIZE];
 
+	@SuppressWarnings("unchecked")
 	private static void put(Object k, Object v) {
 		int key = getIdx(k);
+		System.out.println("key for put : " + key);
 		List list = idx[key];
 		if(list==null) list = new ArrayList();
-		@SuppressWarnings("unchecked")
+		System.out.println("adding : " );
 		list.add(new Entry(k,v));
+		idx[key] = list;
 	}
 
 	@SuppressWarnings("unchecked")
 	private static Object get(Object k) {
 		Object v = null;
 		int key = getIdx(k);
+		System.out.println("key for get : " + key);
 		if(idx[key]!=null) {
 			List list = idx[key];
 			for(int i = 0; i < list.size(); i++) {
 				@SuppressWarnings("unchecked")
 				Entry tmp = (Entry)list.get(i);
+				System.out.println("Entry tmp : "  + tmp.getKey() + " , " + tmp.getValue());
 				if(tmp.getKey().equals(k)) v=tmp.getValue();
 			}
 		}
