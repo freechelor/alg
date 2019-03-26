@@ -86,6 +86,38 @@ and users could control light bulb, gas valve, curtains on windows.
 However, we didn't make it, because bla bla~
 
 
+I am interested in designing architecture for a large-scale system and developing software.
+Because I have experience when I worked on Cell tower project which collects a lot of signal data from Samsung mobile phones and I also worked on a kind of IoT service, let say, Homevita service, Tview Service, which collects sensor data.
+I recognized that it is essential to handle a pretty big bunch of data easily and fast for providing users with nice quality service. The faster and more flexible we can handle them, the better and better quality service we could provide, and actually we can make likely impossible service work.
+
+I have experience that 
+
+@@@@@@@@@@@@@@@@@
+@TODO : from experiences, what you learned, what you achieved, what was big challenge, how to overcome those challenges
+From my experience, I've learned what to consider, how to prioritize according to requirements
+
+Let's assume we're creating video surveliance system.
+Probably, requirements would look like this.
+first, when there's intrusion, users have to be notified with alert.
+second, after there happen any problems, users can check recorded videos at the moment.
+last, users can see video clips of any time in any days whenever they want to.
+In this case, priority would likely be as listed above.
+And we can think that has 3 main parts in functions, one is streaming video smoothly from client side device to servers, and the other is analyzing video to decide there's an intrusion or not.  the last one is storing video streaming.
+
+blabla~~
+
+Tview Service : I learned how Distributes File System(DFS) works and how application has to interact with DFS to make the most out of it. And, finally, I could reduce the cost of storage by approximately 20% by applying DFS and changing existing system architecture and the system became more flexible than before.
+It's kind of a little bit long story, but if you don't mind. I'll give it a try.
 
 
-TODO: to be ready to Go Deeper about the projects when you're asked to do
+sample English sentence just for reference : We can reduce the problem to two main issues
+
+
+
+
+
+
+
+
+@@@@@@@@@@@@@@@@@@@@
+@TODO: to be ready to Go Deeper about the projects when you're asked to do
