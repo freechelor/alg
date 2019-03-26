@@ -106,9 +106,50 @@ And we can think that has 3 main parts in functions, one is streaming video smoo
 
 blabla~~
 
-Tview Service : I learned how Distributes File System(DFS) works and how application has to interact with DFS to make the most out of it. And, finally, I could reduce the cost of storage by approximately 20% by applying DFS and changing existing system architecture and the system became more flexible than before.
-It's kind of a little bit long story, but if you don't mind. I'll give it a try.
+Tview Service : 
+[learned/achieved]
+@TODO : IT SHOULD BE LESSONS LEARNED, NOT A SCHOOL THING
+I learned how Distributes File System(DFS/GlusterFS) works and how application has to interact with DFS to make the most out of it. And, finally, I could reduce the cost of storage by approximately 20% by applying DFS and re-designing existing system architecture to it and we got the more flexible system than before.
 
+[challenges/how to overcome]
+** challenges **
+- I had no idea about DFS.
+- To top it off, I didn't know even how whole system is working and interacting with each other in detail. There were several applications in regards.
+- As always, I don't have enough time for it.
+
+** overcome **
+First, I am focusing on how DFS works and under which conditions we can get cost reduction maximized.
+Second, focusing on minimizing affect by DFS.
+And, I identified which parts would be affected when applying DFS.
+e.g. the application receiving video stream has to change its inteface endpoint to point to DFS and make a longer buffering andflushing a larger file to decrease the number of writing transactions. 
+Then, I came up with some possible design ideas and discussed them with each developer to get proper conclusions.
+And then, make the concrete time table including integration test, aging test, and transition plan.
+
+
+It's kind of a little bit long story, but if you're ok. I'll give it a try.
+
+CellTower Service : 
+[learned/achieved]
+I learned how to utilize given resource efficiently, and blabla~~~
+Finally, I could launch service which collects data from about 30M smart phones and provice cell locations when it is asked.
+
+
+[challenges/how to overcome]
+** challenges **
+Similar to Tview service case, I had no idea about cell tower thing such as signal strength, travel time, let say timing advance.
+At first, just following algorithm given couldn't produce tower locations in time. I mean, it's on a daily basis.
+It's up to other team to create effective and correct algorithms for calculating cell tower locations.
+** overcome **
+But, its performance was not satisfactory, so, I came up with a idea to reduce calculation time significantly by introducing a kind of 
+new component.
+The reason why performance was way slower not to meet requirement, let say, daily update, is we had so many points to gathere to calculate a cell tower location. If we received signals from a specific cell tower 100K times, we had to retrieve all of them from DB.
+So, I introduced a component to cover a part of range of the patch and made it represent the signal information received as if a single point somewhere in the grid has a single signal information.
+Actually, it was just smaller partition of a bigger one called patch, which has 0.1 radius degree in both latitute and longitude.
+But, by using the concept, we can put limitation on the number of places collecting signals from cell towers and that makes calculation time predictable and we could make it in time.
+
+
+As you can see in the above cases, I learned if you define and identify problems exact, you could find solution in the end.
+Of course, there would be following issues to decide about how many resources to pour in.
 
 sample English sentence just for reference : We can reduce the problem to two main issues
 
