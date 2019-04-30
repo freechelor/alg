@@ -22,6 +22,8 @@ import java.util.HashSet;
 public class Steps {
 	static HashSet<String> v = new HashSet<>();
 
+	// 3 = 2 + 1 = (1+0) + 1 = 
+	// 4 = 3 + 2 = (1+0) + 1 + (1+0)
 	public static int getWays(int n) {
 		if(n==0) return 1;
 		if(n==1) return 1;
@@ -60,6 +62,6 @@ public class Steps {
 		for(String a:v) {
 			System.out.println(i++ + " :" +a);
 		}
-		System.out.println(getWays(n));
+		System.out.println("Count : " + getWays(n));
 	}
 }
