@@ -30,11 +30,19 @@ public class Steps {
 
 	public static void getWays(int n, String pre) {
 		if(n==0) { 
-			//if(pre.charAt(pre.length()-1)==',') pre = pre.substring(0,pre.length()-1);
+			if(pre.charAt(pre.length()-1)==',') { 
+				System.out.print("before : " + pre + " => ");
+				pre = pre.substring(0,pre.length()-1);
+				System.out.println("after : " + pre );
+			}
+			if(v.contains("{"+pre+"}")) System.out.println("n=0 duplicate element : " + pre);
+			System.out.println("n=0 {"+pre+"}");
 			v.add("{" + pre + "}");
 			return;
 		}
 		if(n==1) {
+			if(v.contains("{"+pre+"1}")) System.out.println("n=1 duplicate element : " + pre+"1");
+			System.out.println("n=1 {"+pre+"1}");
 			v.add("{" + pre + "1}");
 			return;
 		}
