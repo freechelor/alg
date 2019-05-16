@@ -43,35 +43,51 @@ public class Verify {
 		String st="";
 		String res = "";
 		int orgK = k;
-		while(i++<w.length) {
+		while(i<w.length) {
+			System.out.println("words : " + w[i]);
 			if(w[i].length()<k) {
-				st += w[i] + " ";
-				k -= w[i].length()+1;
+				if(st.length()==0) {
+					st = w[i];
+					k -= w[i].length();
+				} else {
+					st += " " + w[i];
+					k -= w[i].length()+1;
+				}
 			} else if(w[i].length()==k) {
-				st += w[i];
-				k -= w[i].length();
-			} else if(w[i].length()>k && k>0) {
+				if(st.length()==0) {
+					st += w[i];
+					k = 0;
+				} else {
+					st = insertSpaceEvenly(st, k);
+					k = 0;
+				}
+			} else {
 				st = insertSpaceEvenly(st, k);
-				k = 0;
-			}
-			if(k==0) {
-				res += st + ",";
-				st = "";
+				res += st+"\n";
 				k = orgK;
+				st = w[i];
+				k -= w[i].length();
 			}
+			i++;
 		}
+		if(k>0)
+			st = insertSpaceEvenly(st, k);
+		res += st + "\n";
 		return res;
 	}
 
 	public String insertSpaceEvenly(String s, int k) {
+		System.out.println("data in : " + s + " ,k="+k);
 		int i = 0;
-		while(i++<s.length()) {
+		while(i<s.length()) {
+			System.out.println("modified data : " + s + ", i=" + i);
 			if(s.charAt(i)==' '&&k>0) {
 				s = s.substring(0,i) + " " + s.substring(i);
+				System.out.println("innner tweaked data : " + s + ", length="+s.length() + " , k=" + k);
 				k--;
 				i++;
 				while(i++<s.length()) {
-					if(!s.charAt(i).equals(" ")) {
+					if(!(s.charAt(i)==' ')) {
 						break;
 					}
 				}
@@ -79,12 +95,14 @@ public class Verify {
 			if(i==s.length()-1 && k>0) {
 				i=0;
 			}
+			i++;
+			if(k==0) break;
 		}
 		return s;
 	}
 
 	public static void main(String[] args) {
-		String[] words = {"the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"};
+		String[] words = {"the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog", "test"};
 		System.out.println(new Verify().distributeWords(words, 16));
 	}
 }
