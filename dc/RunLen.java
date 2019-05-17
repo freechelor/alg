@@ -22,22 +22,24 @@ public class RunLen {
 	public String enc(String s) {
 		if(s==null|s.length()==0) return null;
 		String res = "";
-		String c = "";
+		String prev = "";
 		int cnt = 0;
 		for(int i=0; i<s.length(); i++) {
 			String tmp = s.charAt(i)+"";
-			if(c.equals("")) { 
-				c=tmp;
+			if(prev.equals("")) { 
+				prev=tmp;
 				cnt++;
 				continue;
 			}
-			if(c.equals(tmp)) {
+			if(prev.equals(tmp)) {
 				cnt++;
 			} else {
-				res += cnt+tmp;
+				res += cnt+prev;
+				prev = tmp;
+				cnt = 1;
 			}
 			if(i==s.length()-1) {
-				res +=
+				res += cnt+prev;
 			}
 		}
 
@@ -57,9 +59,12 @@ public class RunLen {
 	}
 
 	public static void main(String[] args) {
-		String inenc = "aabbccssrrrrrqprtff";
+		String inenc = "aaxxxyyaglaeobjlasdseeeeeelgljjjjjjjjjeklgyueowllakkkkshkbbccssrrrrrqprtff";
 		String indec = "4t5r1q2e";
 		RunLen r = new RunLen();
-		System.out.println(indec + ":"+ r.dec(indec));
+		String result = "";
+		System.out.println("data : " + inenc);
+		System.out.println(inenc + ":"+ (result=r.enc(inenc)));
+		System.out.println(result + ":"+ r.dec(result));
 	}
 }
