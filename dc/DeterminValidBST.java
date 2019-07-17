@@ -28,6 +28,7 @@ A binary search tree is a tree with two children, left and right,
 and satisfies the constraint that the key in the left child must be less than or equal to the root 
 and the key in the right child must be greater than or equal to the root.
 **/
+// SC : O(n) when the number of treenode is n, TC : O(n)
 public class DeterminValidBST {
 	public static boolean isValidBST(TreeNode root) {
 		if(root==null) return true;
