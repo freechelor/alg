@@ -8,7 +8,7 @@
  * 4. Any other ways to consider + compare in terms of Time/Space complexity
  *
  */
-package alg.;
+package alg.dc;
 
 import java.util.HashMap;
 import java.util.ArrayList;
@@ -17,6 +17,7 @@ import java.util.Collections;
 import java.util.Stack;
 import java.util.Queue;
 
+import alg.tr.TreeNode;
 /**
 DC#89_Medium
 This problem was asked by LinkedIn.
@@ -28,6 +29,33 @@ and satisfies the constraint that the key in the left child must be less than or
 and the key in the right child must be greater than or equal to the root.
 **/
 public class DeterminValidBST {
+	public static boolean isValidBST(TreeNode root) {
+		if(root==null) return true;
+		if(isValidBST(root.left)&&isValidBST(root.right)) {
+			if(root.left==null&&root.right==null) {
+				return true;
+			} else if(root.left==null) {
+				if(root.value<=root.right.value) return true;
+				else return false;
+			} else if(root.right==null) {
+				if(root.value>=root.left.value) return true;
+				else return false;
+			} else {
+				if(root.value>=root.left.value&&root.value<=root.right.value) return true;
+				else return false;
+			}
+		} else return false;
+	}
+
 	public static void main(String[] args) {
+		TreeNode root = new TreeNode(70);
+		root.left = new TreeNode(40);
+		root.right = new TreeNode(90);
+		root.left.left = new TreeNode(38);
+		root.left.right = new TreeNode(60);
+		root.right.left = new TreeNode(80);
+		root.right.right = new TreeNode(100);
+		root.right.right.right = new TreeNode(111);
+		System.out.println(isValidBST(root));
 	}
 }
