@@ -62,6 +62,20 @@ public class SearchWordBoard2 {
 	// it means that all what I need to do is to check 
 	// if I can find next character in the board i>i of character found previously and j>j of character found previously
 	
+	public static boolean canFind2(char[][] board, int i, int j, char[] words, int idx) {
+		boolean res = false;
+		if(words.length<=idx) return true;
+		for(int si=i; si<board.length; si++) {
+			for(int sj=j; sj<board[0].length; sj++) {
+				if(si==i&&sj==j) continue;
+				if(board[si][sj]==words[idx]) {
+					res = canFind2(board, si, sj, words, idx+1);
+					if(res) return res;
+				}
+			}
+		}
+		return false;
+	}
 
 
 	public static void main(String[] args) {
@@ -70,12 +84,25 @@ public class SearchWordBoard2 {
 			 {'O', 'B', 'Q', 'P'},
 			  {'A', 'N', 'O', 'B'},
 			   {'M', 'A', 'S', 'S'}};
-		char[] words = "FBOS".toCharArray();
+		char[] words = "FBCS".toCharArray();
 		boolean res = false;
 		for(int i=0; i<board.length; i++) {
 			for(int j=0; j<board[0].length; j++) {
 				if(board[i][j]==words[0]) {
 					res = canFind(board, i, j, words, 1);
+				}
+				if(res) {
+					System.out.println("true");
+					break;
+				}
+			}
+			if(res) break;
+		}
+		if(!res) System.out.println("Case1 Ends False");
+		for(int i=0; i<board.length; i++) {
+			for(int j=0; j<board[0].length; j++) {
+				if(board[i][j]==words[0]) {
+					res = canFind2(board, i, j, words, 1);
 				}
 				if(res) {
 					System.out.println("true");
