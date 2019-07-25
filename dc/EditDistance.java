@@ -20,7 +20,7 @@ import java.util.Queue;
 
 /**
  
-  DailyCoding_Q31
+  DC#31_Easy
 @TODO : What if when you change a character to other character every the same character changes?
 		That should be not the case.
 
