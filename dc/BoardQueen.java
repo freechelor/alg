@@ -20,6 +20,7 @@ import java.util.Queue;
 
 /**
  *
+DC#38_Hard
 This problem was asked by Microsoft.
 
 You have an N by N board. 
