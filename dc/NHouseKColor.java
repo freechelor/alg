@@ -30,12 +30,15 @@ return the minimum cost which achieves this goal.
 public class NHouseKColor {
 	static int min = Integer.MAX_VALUE;
 
-	public static void getMin(int[][] m, int r, int c, int sum) {
+	public static int getMin(int[][] m, int r, int c) {
+		if(r>=m.length) return 0;
 		for(int i=0; i<m[0].length; i++) {
 			if(c!=i) {
-				sum = sum + m[r][i] + getMin(m, r+1, i;
+				int v = m[r][i] + getMin(m, r+1, i);
+				if(v<min) min = v;
 			}	
 		}	
+		return min;
 	}
 
 	public static void main(String[] args) {
@@ -49,8 +52,7 @@ public class NHouseKColor {
 			{ 10, 11, 15, 9, 32},
 			{ 12, 19, 15, 39, 23},
 		};
-		for(int i=0; i<cost[0].length; i++) {
-			getMin(cost, 0, -1, 0);
-		}
+		getMin(cost, 0, -1);
+		System.out.println("Minimum : " + min);
 	}
 }
