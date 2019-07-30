@@ -29,6 +29,7 @@ If there are more than one solution possible, return the lexicographically small
 If [a, b] is one solution with a <= b, and [c, d] is another solution with c <= d, then 
 [a, b] < [c, d]
 If a < c OR a==c AND b < d.
+TC : O(nsqrt(n))
 **/
 public class PrimeSumToTotal {
 	public static boolean isPrime(int n) {
