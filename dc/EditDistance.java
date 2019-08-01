@@ -69,23 +69,28 @@ public class EditDistance {
 	public static int bLen = 0;
 	public int findDistance(String a, String b) {
 		if(a.length()==0||b.length()==0) return Math.max(a.length(), b.length());
-		if(cache[aLen-a.length()][bLen-b.length()]!=-1) return cache[aLen-a.length()][bLen-b.length()];
+		//if(cache[aLen-a.length()][bLen-b.length()]!=-1) return cache[aLen-a.length()][bLen-b.length()];
+		if(cache[a.length()][b.length()]!=-1) return cache[a.length()][b.length()];
 		else {
 			int case1 = findDistance(a, b.substring(1))+1; 
 			int case2 = findDistance(a.substring(1), b)+1;
 			int case3 = (a.charAt(0)==b.charAt(0))? 
 				findDistance(a.substring(1), b.substring(1)): findDistance(a.substring(1), b.substring(1))+1;
-			cache[aLen-a.length()][bLen-b.length()] =  Math.min(Math.min(case1, case2), case3);
+			//cache[aLen-a.length()][bLen-b.length()] =  Math.min(Math.min(case1, case2), case3);
+			cache[a.length()][b.length()] =  Math.min(Math.min(case1, case2), case3);
+			return cache[a.length()][b.length()];
 		}
-		return cache[aLen-a.length()][bLen-b.length()];
 	}
 
 	public static void main(String[] args) {
 		EditDistance eD = new EditDistance();
-		String a = "kittenworkkitten"; aLen = a.length();
-		String b = "sittingrorksitting"; bLen = b.length();
-		cache = new int[a.length()][b.length()];
-		for(int i=0; i<aLen; i++) {
+		String a = "kittenworkkitten"; 
+		aLen = a.length();
+		String b = "sittingrorksitting"; 
+		bLen = b.length();
+		//cache = new int[a.length()][b.length()];
+		cache = new int[a.length()+1][b.length()+1];
+		for(int i=0; i<=aLen; i++) {
 			Arrays.fill(cache[i],-1);
 		}
 		System.out.println(eD.findDistance(a,b));
