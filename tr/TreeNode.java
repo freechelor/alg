@@ -1,9 +1,14 @@
 package alg.tr;
 
 public class TreeNode {
-	TreeNode left;
-	TreeNode right;
-	int value;
+	public TreeNode left;
+	public TreeNode right;
+	public int value;
+	public String val;
+
+	public TreeNode(String v) {
+		val = v;
+	}
 
 	public TreeNode(int d) {
 		value = d;

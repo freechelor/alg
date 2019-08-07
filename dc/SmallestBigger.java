@@ -20,13 +20,13 @@ import java.util.Queue;
 
 /**
 DC#95_Hard
+TC: O(n + nlogn), SC: O(n) 
 **/
 public class SmallestBigger {
 	public int[] getSmallest(int[] arr, int s) {
 		if(arr==null || arr.length==0) return null;
 		int[] tmp = new int[arr.length-s];
 		System.arraycopy(arr, s, tmp, 0, tmp.length);
-		if(isSorted(tmp)) return null;
 		Arrays.sort(tmp);
 		for(int i=s; i<arr.length; i++) {
 			arr[i] = tmp[i-s];
@@ -45,7 +45,6 @@ public class SmallestBigger {
 		if(arr==null || arr.length==0) return null;
 		int r = Integer.MAX_VALUE;
 		int p = arr[s];
-		int res = -1;
 		int idx = -1;
 		for(int i=s; i<arr.length; i++) {
 			if(p<arr[i] && arr[i]<r) {
@@ -54,7 +53,6 @@ public class SmallestBigger {
 			}
 		}
 		if(idx!=-1) {
-			res = r;
 			swap(arr, idx, s);
 			return getSmallest(arr, s+1);	
 		} else {
@@ -71,10 +69,17 @@ public class SmallestBigger {
 
 	public static void main(String[] args) {
 		SmallestBigger obj = new SmallestBigger();	
-		int[] arr = new int[] { 1, 4, 2, 3};
+		//int[] arr = new int[] { 1, 4, 2, 3};
+		//int[] arr = new int[] { 8, 9, 1, 2, 5, 3};
+		//int[] arr = new int[] { 6, 0, 4, 2, 5, 3};
+		int[] arr = new int[] { 3, 9, 4, 2, 6, 5, 8};
 		int[] res = null;
-		for(int i=arr.length-1; i>=0; i++) {
-			res = obj.getSmallestOfBigger(arr, arr.length-1);
+		for(int r : arr) {
+			System.out.print(r + ",");
+		}
+		System.out.println();
+		for(int i=arr.length-1; i>=0; i--) {
+			res = obj.getSmallestOfBigger(arr, i);
 			if(res!=null) break;
 		}
 		if(res==null) res = obj.getSmallest(arr, 0);
@@ -82,5 +87,6 @@ public class SmallestBigger {
 		for(int r : res) {
 			System.out.print(r + ",");
 		}
+		System.out.println();
 	}
 }
