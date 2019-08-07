@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Collections;
 import java.util.Stack;
 import java.util.Queue;
+import java.util.Random;
 
 /**
 DC#66_Medium
@@ -26,6 +27,55 @@ Assume you have access to a function toss_biased() which returns 0 or 1 with a p
 Write a function to simulate an unbiased coin toss.
  **/
 public class DC66_MakeUnbiasUsingBiasedCoin {
+	static boolean cnt = true;
+	static boolean cnt2 = true;
+
+	public static int getUnbiased() {
+		if(getBiased()==0) {
+			if(cnt) {
+				cnt = !cnt;
+			   	return 0;
+			} else {
+				cnt = !cnt;
+				return 1;
+			}
+		} else {
+			if(cnt2) {
+				cnt2 = !cnt2;
+			   	return 0;
+			} else {
+				cnt2 = !cnt2;
+				return 1;
+			}
+		}
+	}
+
+	public static int getUnbiasedByBook() {
+		int first = getBiased();
+		if(first==0 && getBiased()==1) {
+			return 1;
+		}
+		if(first==1 && getBiased()==0) {
+			return 0;
+		}
+		return getUnbiasedByBook();
+	}
+
+	static int[] p = new int[] { 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1 };
+	public static int getBiased() {
+		return p[new Random().nextInt(3)];
+	}
+
+	static int zeroCnt = 0;
+	static int oneCnt = 0;
+
 	public static void main(String[] args) {
+		for(int i=0; i<10000000; i++) {
+			int res = getUnbiasedByBook();
+//			System.out.println(res);
+			if(res == 0 ) zeroCnt++;
+			else oneCnt++;
+		}
+		System.out.println("zeroCnt : " + zeroCnt + " , oneCnt : " + oneCnt);
 	}
 }
