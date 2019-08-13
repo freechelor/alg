@@ -43,11 +43,14 @@ Given a binary tree, return the level of the tree with minimum sum.
 	 30 
 	 ==> 3
 
+TC : O(n), SC : O(1)
  **/
 public class DC117_MinSumLevelOfTree {
 	public static int level = 1;
 	public static int min = Integer.MAX_VALUE;
+	public static int count = 0;
 	public static int sum(TreeNode root, int lev) {
+		count++;
 		if(root==null) return 0;
 		int self = root.value + sum(root.left, lev+1) + sum(root.right, lev+1);
 		if(min>self) { 
@@ -69,5 +72,6 @@ public class DC117_MinSumLevelOfTree {
 
 		sum(root, 1);
 		System.out.println("Level : " + level);
+		System.out.println("Method call count : " + count);
 	}
 }
