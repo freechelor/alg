@@ -1,0 +1,176 @@
+115_Hard
+This problem was asked by Google.
+
+Given two non-empty binary trees s and t, check whether tree t has exactly the same structure and node values with a subtree of s. A subtree of s is a tree consists of a node in s and all of this node's descendants. The tree s could also be considered as a subtree of itself.
+
+116_Medium
+This problem was asked by Jane Street.
+
+Generate a finite, but an arbitrarily large binary tree quickly in O(1).
+
+That is, generate() should return a tree whose size is unbounded but finite.
+
+117_Easy
+This problem was asked by Facebook.
+
+Given a binary tree, return the level of the tree with minimum sum.
+
+114_Hard
+This problem was asked by Facebook.
+
+Given a string and a set of delimiters, reverse the words in the string while maintaining the relative order of the delimiters. For example, given "hello/world:here", return "here/world:hello"
+
+Follow-up: Does your solution work for the following cases: "hello/world:here/", "hello//world:here"
+
+113_Medium
+This problem was asked by Google.
+
+Given a string of words delimited by spaces, reverse the words in string. For example, given "hello world here", return "here world hello"
+
+Follow-up: given a mutable string representation, can you perform this operation in-place?
+
+112_Hard
+This problem was asked by Twitter.
+
+Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree. Assume that each node in the tree also has a pointer to its parent.
+
+According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).”
+
+
+
+
+
+54_Hard
+This problem was asked by Dropbox.
+
+Sudoku is a puzzle where you're given a partially-filled 9 by 9 grid with digits. The objective is to fill the grid with the constraint that every row, column, and box (3 by 3 subgrid) must contain all of the digits from 1 to 9.
+
+Implement an efficient sudoku solver.
+
+
+53_Medium
+This problem was asked by Apple.
+
+Implement a queue using two stacks. Recall that a queue is a FIFO (first-in, first-out) data structure with the following methods: enqueue, which inserts an element into the queue, and dequeue, which removes it.
+
+
+
+51_Medium
+This problem was asked by Facebook.
+
+Given a function that generates perfectly random numbers between 1 and k (inclusive), where k is an input, write a function that shuffles a deck of cards represented as an array using only swaps.
+
+It should run in O(N) time.
+
+Hint: Make sure each one of the 52! permutations of the deck is equally likely.
+
+64_Hard
+This problem was asked by Google.
+
+A knight's tour is a sequence of moves by a knight on a chessboard such that all squares are visited once.
+
+Given N, write a function to return the number of knight's tours on an N by N chessboard.
+
+
+65_Easy
+This problem was asked by Amazon.
+
+Given a N by M matrix of numbers, print out the matrix in a clockwise spiral.
+
+For example, given the following matrix:
+
+[[1,  2,  3,  4,  5],
+ [6,  7,  8,  9,  10],
+ [11, 12, 13, 14, 15],
+ [16, 17, 18, 19, 20]]
+You should print out the following:
+
+1
+2
+3
+4
+5
+10
+15
+20
+19
+18
+17
+16
+11
+6
+7
+8
+9
+14
+13
+12
+
+
+66_Medium
+
+This problem was asked by Square.
+
+Assume you have access to a function toss_biased() which returns 0 or 1 with a probability that's not 50-50 (but also not 0-100 or 100-0). You do not know the bias of the coin.
+
+Write a function to simulate an unbiased coin toss.
+
+
+
+109_Med
+This problem was asked by Cisco.
+
+Given an unsigned 8-bit integer, swap its even and odd bits. The 1st and 2nd bit should be swapped, the 3rd and 4th bit should be swapped, and so on.
+
+For example, 10101010 should be 01010101. 11100010 should be 11010001.
+
+Bonus: Can you do this in one line?
+
+108_Easy
+s problem was asked by Google.
+
+Given two strings A and B, return whether or not A can be shifted some number of times to get B.
+
+For example, if A is abcde and B is cdeab, return true. If A is abc and B is acb, return false.
+
+
+107_Easy
+This problem was asked by Microsoft.
+
+Print the nodes in a binary tree level-wise. For example, the following should print 1, 2, 3, 4, 5.
+
+  1
+ / \
+2   3
+   / \
+  4   5
+We will be sending the solution tomorrow, along with tomorro
+
+DC#60_Medium
+This problem was asked by Facebook.
+
+Given a multiset of integers, return whether it can be partitioned into two subsets whose sums are the same.
+
+For example, given the multiset {15, 5, 20, 10, 35, 15, 10}, it would return true, since we can split it up into {15, 5, 10, 15, 10} and {20, 35}, which both add up to 55.
+
+Given the multiset {15, 5, 20, 10, 35}, it would return false, since we can't split it up into two subsets that add up to the same sum.
+
+DC#61_Medium
+This problem was asked by Google.
+
+Implement integer exponentiation. That is, implement the pow(x, y) function, where x and y are integers and returns x^y.
+
+Do this faster than the naive method of repeated multiplication.
+
+For example, pow(2, 10) should return 1024.
+
+DC#62_Medium
+This problem was asked by Facebook.
+
+There is an N by M matrix of zeroes. Given N and M, write a function to count the number of ways of starting at the top-left corner and getting to the bottom-right corner. You can only move right or down.
+
+For example, given a 2 by 2 matrix, you should return 2, since there are two ways to get to the bottom-right:
+
+Right, then down
+Down, then right
+Given a 5 by 5 matrix, there are 70 ways to get to the bottom-right.
