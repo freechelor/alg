@@ -21,20 +21,15 @@ public class OneFlip {
 	public static boolean canBeDecreasable(int[] arr) {
 		int cnt=0;
 		for(int i=1; i<arr.length-1; i++) {
-			if(arr[i-1]<arr[i]) {
-				if(arr[i]>arr[i+1]) {
-					if(cnt>1) return false;
-					if(arr[i-1]>arr[i+1]) return false;
-					cnt++;
-				} else {
-				}
-			} else {
-				if(arr[i]<arr[i-1]) {
-					if(cnt>1) return false;
-					if(arr[i-1]>arr[i+1]) return false;
-					cnt++;
-				} else {
-				}
+			if(arr[i-1]>arr[i]) {
+			 cnt++;
+			 if(cnt>1) return false;
+			   if(arr[i]>=arr[i+1]) {
+					return false;
+			   } else {
+				   if(arr[i-1]>arr[i+1]) return false;
+				   if(cnt>1) return false;
+			   }
 			}
 		}
 		return true;

@@ -153,7 +153,7 @@ public class QSort {
 	}
 
 	public static void main(String[] args) {
-		Integer[] arr = new Integer[] {10, 25, 30, 1, 9, 51, 7, 109, 62, 23 };
+		Integer[] arr = new Integer[] {51, 51, 10, 25, 30, 1, 51,9, 51,51, 7, 109, 62, 23 };
 		/*
 		//1st round
 		10, 25, 30, 1, 9, 51, 7, 109, 62, 23 i=0, j=9, p=9 at 4
@@ -172,7 +172,7 @@ public class QSort {
 
 		*/
 		//qSort(arr, 0, arr.length-1);
-		qSortByMiddle(1, arr, 0, arr.length-1);
+		qSortByMiddle(Integer.parseInt(args[0]), arr, 0, arr.length-1);
 		print(arr);
 	}
 }
