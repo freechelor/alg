@@ -64,19 +64,22 @@ public class DC113_ReverseStringiWSpaceDel {
 		return chars;
 	}
 
-	public static char[] reversePart(char[] c, int s) {
+	public static void reversePart(char[] c, int s) {
 		int f = s;
 		int l = s;
-		while(c[s]!=' ' && s < c.length) {
-			s++;	
+		while(s<c.length) {
+			while(s<c.length && c[s]!=' ') {
+				s++;	
+			}
+			l = s-1;
+			reverseInplace(c, f, l);
+			s++;
 		}
-		l = s-1;
-		reverseInplace(c, f, l);
 	}
 
 	public static void main(String[] args) {
 		reverse("Hello World here");
 		System.out.println();
-		System.out.println(reversePart(reverseInplace("Hellllllooooooo World Here")));
+		System.out.println(reversePart(reverseInplace("Hellllllooooooo World Here".toCharArray(), 0, "Hellllllooooooo World Here".length()-1),0));
 	}
 }
