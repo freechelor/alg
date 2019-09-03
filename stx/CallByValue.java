@@ -16,11 +16,13 @@ import java.util.List;
 import java.util.Collections;
 import java.util.Stack;
 import java.util.Queue;
-
+/*
+ * http://www.javadude.com/articles/passbyvalue.htm
+ */
 public class CallByValue {
 	public static void moveTo(Person p) {
-		Person newP = p;
-		newP.dep.name = "Web";
+		p = new Person(2, "Other", new Department(2, "Web"));
+		System.out.println(p.toString());
 	}
 
 	public static void main(String[] args) {
