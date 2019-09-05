@@ -16,6 +16,7 @@ NO.		| Level | SOLVED | RELATED_NO |		DESC
 #15
 #16
 #17
+#65		| E		|	Y	|		| NC Solution, and I was struggling to print the last element
 #110
 #111
 #112
@@ -23,11 +24,11 @@ NO.		| Level | SOLVED | RELATED_NO |		DESC
 #114
 #115
 #116
-#117	| E		|	Y	|		|	O(n)
+#117	| E		|	Y	|		| NC Solution,	O(n), it depends on if it allows minus values or not 
 #118
 #119
 #120
-#121	| H		|   Y	|		| NEED TO CHECK SOLUTION
+#121	| H		|   Y	|		| NC Solution
 #122
 #123
 
