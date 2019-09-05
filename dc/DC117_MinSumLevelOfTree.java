@@ -43,6 +43,16 @@ Given a binary tree, return the level of the tree with minimum sum.
 	 30 
 	 ==> 3
 
+
+			5
+		  /   \
+		 -5(O) 10
+	    / \   /
+	  -12 4 6
+	  /
+	 16 
+	 ==> 2
+
 TC : O(n), SC : O(1)
  **/
 public class DC117_MinSumLevelOfTree {
@@ -63,12 +73,12 @@ public class DC117_MinSumLevelOfTree {
 
 	public static void main(String[] args) {
 		TreeNode root = new TreeNode(5);
-		root.left = new TreeNode(3);
-		root.right = new TreeNode(6);
-		root.left.left = new TreeNode(2);
-		root.left.right = new TreeNode(41);
-		root.left.left.left = new TreeNode(30);
-		root.right.left = new TreeNode(-1);
+		root.left = new TreeNode(-5);
+		root.right = new TreeNode(10);
+		root.left.left = new TreeNode(-12);
+		root.left.right = new TreeNode(4);
+		root.left.left.left = new TreeNode(16);
+		root.right.left = new TreeNode(6);
 
 		sum(root, 1);
 		System.out.println("Level : " + level);
