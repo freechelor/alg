@@ -24,9 +24,10 @@ What if it's singly linked?
 
 For example, 1 -> 4 -> 3 -> 4 -> 1 returns True while 1 -> 4 returns False.
 For Doubly Linked List, TC : O(n), SC : O(1)
-For Singly Linked List
+For Singly Linked List, TC : O(n), SC : O(n)
  **/
 public class CheckPalindrome {
+	// in case of doubly linked list
 	public static boolean isPalindrome(DNode n) {
 		DNode first = n;
 		DNode last = n;
@@ -41,13 +42,41 @@ public class CheckPalindrome {
 		return false;
 	}
 
+	static Stack<Single> s = new Stack<>();
+	// in case of singly linked list
+	public static boolean isPalindrome(Single n) {
+		Single head = n;
+		while(n!=null) {
+			System.out.println(n.toString());
+			s.push(n);
+			n = n.next;
+		}
+
+		while(head!=null) {
+			Single vv = s.pop();
+			if(head.val==vv.val) {
+				System.out.println("head : " + head.toString() + " , stack : " + vv.toString());
+				head = head.next;
+			} else return false;
+		}
+		return true;
+	}	
+
 	public static void main(String[] args) {
 		DNode n = new DNode(1);
 		n.add(new DNode(4));
-//		n.next.add(new DNode(3));
-//		n.next.next.add(new DNode(4));
-//		n.next.next.next.add(new DNode(1));
+		n.next.add(new DNode(3));
+		n.next.next.add(new DNode(4));
+		n.next.next.next.add(new DNode(1));
 		System.out.println(isPalindrome(n));
+
+		Single single = new Single(1);
+		System.out.println("first : " + single.toString());
+		single.add(new Single(4));
+		single.next.add(new Single(3));
+		single.next.next.add(new Single(4));
+		single.next.next.next.add(new Single(1));
+		System.out.println(isPalindrome(single));
 	}
 }
 
@@ -84,5 +113,18 @@ class DNode {
 			}
 			cNext = next.next;
 		}
+	}
+}
+
+class Single {
+	public Single next;
+	public int val;
+
+	public Single(int v) {
+		val = v;
+	}
+
+	public void add(Single s) {
+		this.next = s;
 	}
 }
