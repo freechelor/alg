@@ -16,7 +16,12 @@ NO.		| Level | SOLVED | RELATED_NO |		DESC
 #15
 #16
 #17
-#65		| E		|	Y	|		| NC Solution, and I was struggling to print the last element
+#31		| E		| 	Y	|		| NC, Not Easy.
+#65		| E		|	Y	|		| NC, and I was struggling to print the last element
+#98		| E		|	Y	|		| NC, Can I make use of DP?
+#104	| E		|	Y	|		| NC, singly linked
+#107	| E		|	Y	|		| NC
+#108	| E		|	Y	|		| NC
 #110
 #111
 #112
@@ -24,11 +29,11 @@ NO.		| Level | SOLVED | RELATED_NO |		DESC
 #114
 #115
 #116
-#117	| E		|	Y	|		| NC Solution,	O(n), it depends on if it allows minus values or not 
+#117	| E		|	Y	|		| NC,	O(n), it depends on if it allows minus values or not 
 #118
 #119
 #120
-#121	| H		|   Y	|		| NC Solution
+#121	| H		|   Y	|		| NC
 #122
 #123
 
