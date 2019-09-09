@@ -67,15 +67,16 @@ public class EditDistance {
 	public static int[][] cache = null;
 	public static int aLen = 0;
 	public static int bLen = 0;
+
 	public int findDistance(String a, String b) {
 		if(a.length()==0||b.length()==0) return Math.max(a.length(), b.length());
 		//if(cache[aLen-a.length()][bLen-b.length()]!=-1) return cache[aLen-a.length()][bLen-b.length()];
 		if(cache[a.length()][b.length()]!=-1) return cache[a.length()][b.length()];
 		else {
-			int case1 = findDistance(a, b.substring(1))+1; 
-			int case2 = findDistance(a.substring(1), b)+1;
+			int case1 = findDistance(a, b.substring(1))+1; // delete
+			int case2 = findDistance(a.substring(1), b)+1; // delete
 			int case3 = (a.charAt(0)==b.charAt(0))? 
-				findDistance(a.substring(1), b.substring(1)): findDistance(a.substring(1), b.substring(1))+1;
+				findDistance(a.substring(1), b.substring(1)): findDistance(a.substring(1), b.substring(1))+1;	// replace
 			//cache[aLen-a.length()][bLen-b.length()] =  Math.min(Math.min(case1, case2), case3);
 			cache[a.length()][b.length()] =  Math.min(Math.min(case1, case2), case3);
 			return cache[a.length()][b.length()];
