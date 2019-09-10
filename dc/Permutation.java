@@ -19,6 +19,11 @@ import java.util.Queue;
 import java.util.Vector;
 /**
 DC#96_Easy
+This problem was asked by Microsoft.
+
+Given a number in the form of a list of digits, return all possible permutations.
+
+For example, given [1,2,3], return [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
 brute force : TC:O(n^n), SC:(n)
 @TODO : is it possible to reduce TC?
 **/
@@ -45,12 +50,12 @@ public class Permutation {
 		v.add("2");
 		v.add("3");
 		v.add("4");
-		v.add("5");
-		v.add("6");
-		v.add("7");
-		v.add("8");
-		v.add("9");
-		v.add("a");
+//		v.add("5");
+//		v.add("6");
+//		v.add("7");
+//		v.add("8");
+//		v.add("9");
+//		v.add("a");
 		/*
 		v.add("b");
 		v.add("c");
