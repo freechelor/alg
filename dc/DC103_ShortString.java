@@ -186,24 +186,24 @@ public class DC103_ShortString {
 				for(int j=0; j<c.length; j++) {
 					int tmp = map.getOrDefault(c[j], -1);
 					if(tmp!=-1) {
-						hasSolution = true;
 						if(tmp<min) min = tmp;
 						if(tmp>max) max = tmp;
 					} else {
 						hasSolution = false;
 						break;
 					}
+					if(j==c.length-1) hasSolution = true;
 				}
 				if(hasSolution) {
 					if(shortest>max-min) { 
 						shortest = max-min;
 						start = min;
 						end = max;
-						System.out.println("min : " + min + " , max : " + max);
 					}
 				}
 			}
 		}
+		if(!hasSolution) return null;
 		return org.substring(start, end+1);
 	}
 
@@ -214,7 +214,8 @@ public class DC103_ShortString {
 	
 		System.out.println("Smallest window is :\n " + 
 						findSubString(str, pat)); 
-		String str2 = "figehaecawouthbowdheslbieoahwakleiqtehdkhgioeni";
+		//String str2 = "figehaecawouthbowdheslbieoahwakleiqtehdkhgioeni";
+		String str2 = "figehreci";
 		//String str2 = "figehaeci";
 		System.out.println(shortestString(str2, new char[] {'a','e','i'}));
 	} 
