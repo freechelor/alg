@@ -30,6 +30,24 @@ TC : O(n), SC : O(n)
 public class ContiguousSum {
 	public static HashMap<Integer, Integer> map = new HashMap<>();
 
+	// we can get all sums of any combination of contiguous elements
+	// then check if one of them equals to the given K
+	public static void findContiguousSumBrutal(int[] arr, Integer n) {
+		for(int i=0; i<arr.length; i++) {
+			int sum = 0;
+			for(int j=i; j<arr.length; j++) {
+				sum += arr[j];
+				if(sum==n) {
+					for(int k=i; k<=j; k++) {
+						System.out.print(k+ " ");
+					}
+					System.out.println();
+				}
+			}
+		}
+		System.out.println();
+	}
+
 	public static void findContiguousSum(int[] arr, Integer n) {
 		int sum = 0;
 		int firstIdx = 0;
@@ -54,14 +72,17 @@ public class ContiguousSum {
 	public static void main(String[] args) {
 		int T = 50;
 		int[] arr = {5, -1, 10, 3, 9, -2, 4, 12, 7, 9, 22, 1, 3, -4, 3, 6, 9, 5,2, 17, 8, -6, -7};
+		System.out.printf("%10s", "Index : " );
 		for(int i=0; i<arr.length; i++) {
 			System.out.printf("%4d", i);
 		}
 		System.out.println();
+		System.out.printf("%10s", "data : " );
 		for(int a:arr) {
 			System.out.printf( "%4d", a);
 		}
 		System.out.println();
 		findContiguousSum(arr, 50);
+		findContiguousSumBrutal(arr, 50);
 	}
 }
