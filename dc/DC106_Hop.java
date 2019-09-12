@@ -11,6 +11,7 @@
 package alg.dc;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
@@ -26,18 +27,28 @@ For example, [2, 0, 1, 0] returns True while [1, 1, 0, 1] returns False.
  * TC : O(n), SC : O(1)
  **/
 public class DC106_Hop {
+	// to check it has infinite loops
+	static HashSet<Integer> set = new HashSet<>();
 	public static boolean getPossibleRoute(int[] arr) {
 		int i = 0;
+		set.add(new Integer(i));
 		while(i<arr.length) {
 			if(arr[i]==0&&i<arr.length-1) return false;
 			i += arr[i];
 			if(i==arr.length-1) return true;
+			if(set.contains(new Integer(i))) {
+				return false;
+			} else {
+				set.add(new Integer(i));
+			}
 		}
 		return true;
 	}
 
 	public static void main(String[] args) {
-		int[] arr = new int[] { 1, 1, 3, 1, 2, -2, 0, 0};
+		int[] arr = new int[] { 1, 1, 3, 1, 2, -2, 2, 0};
+		//int[] arr = new int[] { 1, 1, 1, 2, 2, -2, 0, 0};
+		//int[] arr = new int[] { 1, 1, 3, 1, 2, -2, 0, 0};
 		System.out.println(getPossibleRoute(arr));
 	}
 }
