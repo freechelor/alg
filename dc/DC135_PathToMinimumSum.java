@@ -34,6 +34,7 @@ For example, the minimum path in this tree is [10, 5, 1, -1], which has sum 15.
 **/
 public class DC135_PathToMinimumSum {
 	static List<Integer> path = new ArrayList<>();
+	static List<TreeNode> nodePath = new ArrayList<>();
 	static String finalPath = null;
 	static int min = Integer.MAX_VALUE;
 	static int currentSum = 0;
@@ -67,33 +68,40 @@ public class DC135_PathToMinimumSum {
 		}
 	}
 
-	public static void traverseTreeRecursive(TreeNode root) {
-		if(root==null) return;	
+	public static List<TreeNode> traverseTreeRecursive(TreeNode root) {
+		if(root==null) return null;	
 		if(root.left==null && root.right==null) {
-			// compare sum till here with min
-			currentSum += root.value;
-			path.add(root.value);
-			if(currentSum<min)  { 
-				min = currentSum;
-				// save to miminum path variable
-				finalPath = "";
-				for(int a : path) {
-					finalPath += a + " ";
-				}
-			}
-			currentSum -= root.value;
-			path.remove(path.size()-1);
-			return;
+			List<TreeNode> leaf = new ArrayList<>();
+			leaf.add(root);
+			return leaf;
 		} else {
-			// add current node
-			path.add(root.value);
-			currentSum += root.value;
-			// traverse both sub-tree
-			traverseTree(root.left);
-			traverseTree(root.right);
-			// remove current node
-			path.remove(path.size()-1);
-			currentSum -= root.value;
+			List<TreeNode> leftMin = null;
+			List<TreeNode> rightMin = null;
+			rightMin = traverseTreeRecursive(root.right);
+			leftMin = traverseTreeRecursive(root.left);
+			if(leftMin==null) {
+				rightMin.add(root);
+				return rightMin;
+			}
+			if(rightMin==null) {
+				leftMin.add(root);
+				return leftMin;
+			}
+			int leftSum = 0;
+			int rightSum = 0;
+			for(TreeNode a : leftMin) { 
+				leftSum += a.value;
+			}
+			for(TreeNode a : rightMin) { 
+				rightSum += a.value;
+			}
+			if(leftSum<rightSum) {
+				leftMin.add(root);
+				return leftMin;
+			} else {
+				rightMin.add(root);
+				return rightMin;
+			}
 		}
 	}
 	public static void main(String[] args) {
@@ -112,5 +120,10 @@ public class DC135_PathToMinimumSum {
 		root.right.right.left = n5;
 		traverseTree(root);
 		System.out.println(finalPath);
+		
+		List<TreeNode> result = traverseTreeRecursive(root);
+		for(TreeNode a :  result) {
+			System.out.print( a.value + " " );
+		}
 	}
 }
