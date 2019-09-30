@@ -17,12 +17,13 @@ NO.		| Level | SOLVED | RELATED_NO |		DESC
 #16
 #17
 #31		| E		| 	Y	|		| NC, Not Easy.
-#65		| E		|	Y	|		| NC, and I was struggling to print the last element
-#96		| E		|	Y	|		| NC, improve TC?
-#98		| E		|	Y	|		| NC, Can I make use of DP?
-#101	| E		|	N	|		| NC, you can see how to check prime number
-#103	| M		|		|		| NC, can't think of idea, can't understand Solution. So, I pasted a solution from GFG
+#65		| E		|	Y	|		| NC, HC, and I was struggling to print the last element
+#96		| E		|	Y	|		| NC, NI, improve TC?
+#98		| E		|	Y	|		| NC, NI, Can I make use of DP?
+#101	| E		|	N	|		| NC, BS, you can see how to check prime number
+#103	| M		|	N	|		| NC, CT, can't think of idea, can't understand Solution. So, I pasted a solution from GFG
 #104	| E		|	Y	|		| NC, singly linked
+#106	| M		|	Y	|		| NC
 #107	| E		|	Y	|		| NC
 #108	| E		|	Y	|		| NC
 #110
@@ -38,5 +39,27 @@ NO.		| Level | SOLVED | RELATED_NO |		DESC
 #120
 #121	| H		|   Y	|		| NC
 #122
-#123
+#123	|		|		|		|
+#124
+#125
+#126
+#127
+#128
+#129
+#130
+#131
+#132
+#133
+#134
+#135	| E		|   Y	|		| a little bit different way in solution.
 
+[Review Category]
+CT : can't think of any ideas. So, also means the problem is very hard to me.
+DU : hard to understand what solution says.
+NK : need knowledge to solve or understand problems or solutions
+BS : basic knowledge or algorithm or data structure to know
+GE : good examples for understanding specific concepts or algorithms or data strucutures
+NI : need some improvement or it looks possible to improve TC or SC
+HC : how to code.. some confusion, what to do to make it working nice
+
+NC : need to check solutions
