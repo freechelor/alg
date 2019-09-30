@@ -38,6 +38,9 @@ public class DC135_PathToMinimumSum {
 	static String finalPath = null;
 	static int min = Integer.MAX_VALUE;
 	static int currentSum = 0;
+
+	// My solution.
+	// It's a kind of backtracking, right?
 	public static void traverseTree(TreeNode root) {
 		if(root==null) return;	
 		if(root.left==null && root.right==null) {
@@ -68,6 +71,8 @@ public class DC135_PathToMinimumSum {
 		}
 	}
 
+	// Sample solution
+	// it's traditional recursive way, right?
 	public static List<TreeNode> traverseTreeRecursive(TreeNode root) {
 		if(root==null) return null;	
 		if(root.left==null && root.right==null) {
