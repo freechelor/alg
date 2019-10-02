@@ -38,6 +38,8 @@ A bit array is a space efficient array that holds a value of 1 or 0 at each inde
  * But, I have to make it space efficient
  * Actually, I don't need more space than 1 bit for storing 0 or 1
  * I can use bit shift to set val at index i or get val from index i
+ *
+ * TC : O(1), SC : O(n)
  */
 public class DC137_ImplementBitArray {
 	static HashMap<Integer, Integer> map = null;
