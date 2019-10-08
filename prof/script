@@ -125,6 +125,14 @@ e.g. the application receiving video stream has to change its inteface endpoint 
 Then, I came up with some possible design ideas and discussed them with each developer to get proper conclusions.
 And then, make the concrete time table including integration test, aging test, and transition plan.
 
+#####################
+// added on 10/08/2019
+** device integration **
+The main features of the project are to show real-time video streams from users' camera and save them into storage so that users can check at anytime.
+I needed to make cameras communicate with our servers, but I hadn't have any experience in video streaming.
+And, unfortunately, guys who were responsible for developing that module didn't have much experience, either.
+So, I had to get the hang of it as soon as possible
+#############################
 
 It's kind of a little bit long story, but if you're ok. I'll give it a try.
 
