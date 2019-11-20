@@ -91,6 +91,18 @@ public class MyHashMap<K,V> {
 		return (size()==0);
 	}
 	
+	private void loadFactor() {
+		if((1.0*size)/bucketSize >= 0.7) {
+			ArrayList<HashNode<K,V>> temp = list;
+			list = new ArrayList<HashNode<K,V>>();
+			bucketSize *= 2;
+			size = 0;
+			for(int i=0; i<temp.size(); i++) {
+				put(temp.get(i).key, temp.get(i).value);
+			}
+		}
+	}
+
 	public static void main(String args[]) {
         MyHashMap<String, Integer> map = new MyHashMap<>(); 
         map.put("this",1 ); 
