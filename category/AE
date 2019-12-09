@@ -1,0 +1,57 @@
+difference between BigDecimal and BigInt  
+
+Difference between Depth First Search and Breath First Search
+
+linked list find nth node from the end.
+-> use two pointer
+
+find the second most used alphabet in a sentence
+-> HashMap or just Array
+-> Priority Queue?
+
+design lru cache
+
+design rule engine
+--> https://stackoverflow.com/questions/20763189/creating-a-simple-rule-engine-in-java
+
+design Google news feed app
+
+micro services distributed trace  
+
+What is a garbage collector in Java? When does it run? 
+
+List the 8 Java primitives. 
+
+Define algorithm. List different search algorithms and their time complexity. 
+
+In SQL, what are the different types of joins? What is a subquery?  
+
+What's the difference between StringBuilder vs. StringBuffer? 
+
+Explain the Java Collections library. Why is the library so big? How do you know what to use?  
+
+What is the "dom"? 
+
+When can an object be casted? 
+
+Explain the 4 pillars of OOP without giving examples.
+
+Read code and determine what is printed from the given code which contains inheritance/overloading. 
+
+Implement exception handling if you had to iterate through an array. 
+
+List two reasons to use threading.
+
+What are two drawbacks of Single Page Applications? What are two benefits? 
+
+Implement a stack.  
+
+How would you build a restaurant review app. What do you think you will need in order to successfully do it.  
+
+Find a duplicated integer in a list of 101 integers going from 0 to 99, there will be only one duplicate.  → just sum
+
+Projects, Spring Framework, Database Normal Forms, Core Java, Tomcat Connection Pooling, how to able design a website to handle large incoming traffic, Choosing a database, Networking commands in Linux, JavaScript callbacks, Stacks and Queues and working of SSL/TLS protocol.  
+
+ functions of short urls
+
+Synchronized Block vs synchronized Method  
