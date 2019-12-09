@@ -1,58 +1,86 @@
-difference between BigDecimal and BigInt  
+Q. difference between BigDecimal and BigInt  
 
-Difference between Depth First Search and Breath First Search
+Q. Difference between Depth First Search and Breath First Search
 
-linked list find nth node from the end.
+Q. linked list find nth node from the end.
 -> use two pointer
 
-find the second most used alphabet in a sentence
+Q. find the second most used alphabet in a sentence
 -> HashMap or just Array
--> Priority Queue?
+-> Priority Queue? NOT thread safe
 
-design lru cache
+Q. design lru cache
 
-design rule engine
+Q. design rule engine
 --> https://stackoverflow.com/questions/20763189/creating-a-simple-rule-engine-in-java
 
-design Google news feed app
+Q. design Google news feed app
 
-micro services distributed trace  
+Q. micro services distributed trace  
 
-What is a garbage collector in Java? When does it run? 
+Q. What is a garbage collector in Java? When does it run? 
 
-List the 8 Java primitives. 
+Q. List the 8 Java primitives. 
+-> boolean, byte, char, short, int, long, float and double
 
-Define algorithm. List different search algorithms and their time complexity. 
-- is a finite sequence of well-defined instructions, typically to solve a class of problems
+Q. Define algorithm. List different search algorithms and their time complexity. 
+-> is a finite sequence of well-defined instructions, typically to solve a class of problems
 
-In SQL, what are the different types of joins? What is a subquery?  
+Q. In SQL, what are the different types of joins? What is a subquery?  
 
-What's the difference between StringBuilder vs. StringBuffer? 
+Q. What's the difference between StringBuilder vs. StringBuffer? 
+-> StringBuffer is synchronized, but StringBuilder is not. So StringBuilder is faster than StringBuffer.
 
-Explain the Java Collections library. Why is the library so big? How do you know what to use?  
+Q. Explain the Java Collections library. Why is the library so big? How do you know what to use? 
+-> JCF(java collection framework) is a set of interfaces and classes that provides methods/ways to store and manipulate the group of objects.
 
-What is the "dom"? 
+Q. What is the "dom"? 
+-> Document Object Model(DOM) is an interface(cross-platform and language-independent) that treats an XML or HTML document as a tree structure where each node is an object representing a part of document.
 
-When can an object be casted? 
+Q. When can an object be casted? 
+-> https://www.baeldung.com/java-type-casting
 
-Explain the 4 pillars of OOP without giving examples.
+Q. Explain the 4 pillars of OOP without giving examples.
 
-Read code and determine what is printed from the given code which contains inheritance/overloading. 
 
-Implement exception handling if you had to iterate through an array. 
+Q. Read code and determine what is printed from the given code which contains inheritance/overloading. 
 
-List two reasons to use threading.
+Q. Implement exception handling if you had to iterate through an array. 
 
-What are two drawbacks of Single Page Applications? What are two benefits? 
+Q. List two reasons to use threading.
+- https://javarevisited.blogspot.com/2017/03/why-we-use-threads-in-java.html
+1. to make a task run parallel to another task. e.g. while you upload a big file, you can do other things like navigating other pages.
+2. to increase throughput taking full advantage of CPU power
+3. to reduce response time
+3. to server multiple clients at the same time
+[IMPORTANT]
+By the way, Threading is not free, it comes with its own challenges. You can only maximize throughput of your application up to certain extent, once numbering of the thread increases up to a certain threshold, they will start competing for CPU and context switching will occur. Context switching means one thread which is using CPU is suspended and CPU is allocated to another thread for execution. When this happens, thread generally loses all of their cached data. If that thread resumes on another core then it has to build its cache from the start.
 
-Implement a stack.  
+Threading also introduces a special set of a problem known as multi-threading issue e.g. deadlock, livelock, memory inconsistency error, race conditions, and starvation. It's also very difficult to test a Java program which involves multiple threads. You cannot predict the order of execution in case of multi-threading and without any synchronization. You should also read Java Concurrency in Practice to learn more how to use threads effectively in Java.
 
-How would you build a restaurant review app. What do you think you will need in order to successfully do it.  
 
-Find a duplicated integer in a list of 101 integers going from 0 to 99, there will be only one duplicate.  → just sum
 
-Projects, Spring Framework, Database Normal Forms, Core Java, Tomcat Connection Pooling, how to able design a website to handle large incoming traffic, Choosing a database, Networking commands in Linux, JavaScript callbacks, Stacks and Queues and working of SSL/TLS protocol.  
 
- functions of short urls
+Also, parallelism will be limited to the fact of the size of critical section i.e. the part of the code which must be executed by the only thread at a time. If you have a long critical section then eventually all thread will wait there and your program will behave like a single threaded program.
 
-Synchronized Block vs synchronized Method  
+
+Read more: https://javarevisited.blogspot.com/2017/03/why-we-use-threads-in-java.html#ixzz67dLyk9yS
+https://javarevisited.blogspot.com/2016/12/difference-between-executor-framework-and-ForkJoinPool-in-Java.html
+
+
+
+
+Q. What are two drawbacks of Single Page Applications? What are two benefits? 
+
+Q. Implement a stack.
+
+Q. How would you build a restaurant review app. What do you think you will need in order to successfully do it. 
+
+Q. Find a duplicated integer in a list of 101 integers going from 0 to 99, there will be only one duplicate. 
+-> just sum
+
+Q. Projects, Spring Framework, Database Normal Forms, Core Java, Tomcat Connection Pooling, how to able design a website to handle large incoming traffic, Choosing a database, Networking commands in Linux, JavaScript callbacks, Stacks and Queues and working of SSL/TLS protocol. 
+
+Q. functions of short urls
+
+Q. Synchronized Block vs synchronized Method 
