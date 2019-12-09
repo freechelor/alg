@@ -1,6 +1,6 @@
 Palindrome
-- checkPalindrome
-- findPalindrome
+	- checkPalindrome
+	- findPalindrome
 Tree
 Search
 List
@@ -13,3 +13,5 @@ BackTracking
 Recursive
 Iterate
 Pointer
+Matrix 
+	- rotation
