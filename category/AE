@@ -84,3 +84,7 @@ Q. Projects, Spring Framework, Database Normal Forms, Core Java, Tomcat Connecti
 Q. functions of short urls
 
 Q. Synchronized Block vs synchronized Method 
+
+Q. check how to add/implement annotation in action
+- https://www.mkyong.com/java/java-custom-annotations-example/  with reflection
+- https://www.baeldung.com/java-custom-annotation
