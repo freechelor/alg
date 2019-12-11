@@ -73,15 +73,30 @@ https://javarevisited.blogspot.com/2016/12/difference-between-executor-framework
 Q. What are two drawbacks of Single Page Applications? What are two benefits? 
 
 Q. Implement a stack.
+-> using a queue or two queues
+
+Q. Implement a queue
+-> using two stacks 
 
 Q. How would you build a restaurant review app. What do you think you will need in order to successfully do it. 
 
 Q. Find a duplicated integer in a list of 101 integers going from 0 to 99, there will be only one duplicate. 
 -> just sum
 
-Q. Projects, Spring Framework, Database Normal Forms, Core Java, Tomcat Connection Pooling, how to able design a website to handle large incoming traffic, Choosing a database, Networking commands in Linux, JavaScript callbacks, Stacks and Queues and working of SSL/TLS protocol. 
+Q. Projects, 
+   Spring Framework, 
+   Database Normal Forms, 
+   Core Java, 
+   Tomcat Connection Pooling, 
+   how to able design a website to handle large incoming traffic, 
+   Choosing a database, 
+   Networking commands in Linux, 
+   JavaScript callbacks, 
+   Stacks and Queues and 
+   working of SSL/TLS protocol. 
 
 Q. functions of short urls
+-> hashing and then Base64(integer, alphabet capital and lower encoding)
 
 Q. Synchronized Block vs synchronized Method 
 
