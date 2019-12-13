@@ -18,6 +18,30 @@ import java.util.Stack;
 import java.util.Queue;
 
 public class PartitionPalindrome {
+// from solution or discussion
+    public List<List<String>> partition(String s) {
+        int len = s.length();
+        List<List<String>> dp[] = new List[len + 1];
+        dp[0] = Arrays.asList(Collections.emptyList());
+        boolean b[] = new boolean[len];
+        for (int l = 1; l <= len; l++) {
+            int i = l - 1;
+            dp[l] = new ArrayList<>();
+            for (int j = 0; j <= i; j++) {
+                b[j] = j == i || (j + 1 == i || b[j + 1]) && s.charAt(j) == s.charAt(i);
+                if (b[j]) {
+                    for (List<String> prefix : dp[j]) {
+                        List<String> cur = new ArrayList<>(prefix);
+                        cur.add(s.substring(j, i + 1));
+                        dp[l].add(cur);
+                    }
+                }
+            }
+        }
+        return dp[len];
+    }
+
+/*
 	public boolean getPalindromeSet(String s, List<String> cur, List<String> res) {
 		if(s==null||s.length()==0) return true;
 		if(isPalindrome(s)) return true;
@@ -44,6 +68,7 @@ public class PartitionPalindrome {
 		}
 		return true;
 	}
+*/
 
 	public static void main(String[] args) {
 	}
