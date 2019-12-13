@@ -11,6 +11,8 @@ Q. find the second most used alphabet in a sentence
 
 Q. design lru cache
 
+Q. cache vs pooling
+
 Q. design rule engine
 --> https://stackoverflow.com/questions/20763189/creating-a-simple-rule-engine-in-java
 
@@ -85,13 +87,16 @@ Q. Find a duplicated integer in a list of 101 integers going from 0 to 99, there
 
 Q. Projects, 
    Spring Framework, 
+   Spring over Tomcat in terms of configuration,
    Database Normal Forms, 
    Core Java, 
    Tomcat Connection Pooling, 
    how to able design a website to handle large incoming traffic, 
    Choosing a database, 
    Networking commands in Linux, 
+   - popular commands in regards to network, file, disk operation
    JavaScript callbacks, 
+   -> https://javascript.info/callbacks
    Stacks and Queues and 
    working of SSL/TLS protocol. 
 
@@ -103,3 +108,8 @@ Q. Synchronized Block vs synchronized Method
 Q. check how to add/implement annotation in action
 - https://www.mkyong.com/java/java-custom-annotations-example/  with reflection
 - https://www.baeldung.com/java-custom-annotation
+
+Q. what happens when you type in url?
+- https://medium.com/@maneesha.wijesinghe1/what-happens-when-you-type-an-url-in-the-browser-and-press-enter-bb0aa2449c1a
+
+Q. totally understand backtrack concept. need some googling for its definition!
