@@ -12,13 +12,14 @@ package alg.category;
 
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Collections;
 import java.util.Stack;
 import java.util.Queue;
 
 public class PartitionPalindrome {
-// from solution or discussion
+// from solution or discussion. this works with DP
     public List<List<String>> partition(String s) {
         int len = s.length();
         List<List<String>> dp[] = new List[len + 1];
@@ -71,5 +72,10 @@ public class PartitionPalindrome {
 */
 
 	public static void main(String[] args) {
+		PartitionPalindrome p = new PartitionPalindrome();
+		List<List<String>> res = p.partition("aabarssgeekkeeg");
+		for(List<String> l : res) {
+			System.out.println(l);
+		}
 	}
 }
