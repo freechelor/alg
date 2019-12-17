@@ -43,7 +43,26 @@ Q. When can an object be casted?
 -> https://www.baeldung.com/java-type-casting
 
 Q. Explain the 4 pillars of OOP without giving examples.
-
+-> Let's try my own real example.
+How about this.
+I have two cars. One is Sedan and the other is SUV.
+Car has a lot of parts in it. But I don't need to know every single details to model it to software world.
+I'll have a car converted to a class like something that has attributes like engineen, body, steering wheel, wheels, doors, engine oils, break oils, and some methods like accelerator, brake and accelerate(), stop(), changeOil(), open/closeDoor()
+That's abstraction, which brings some aspects of something that we want to handle in software.
+If I have 2-door sports car and the other is SUV.
+They are still cars which have many things in common with Car that I've modeled just right before.
+In the case, we can reuse those common attributes from Cars in Sports car and SUV.
+That's inheritance.
+And if we think car owner let say, myself, just myself can change engine oil because the car is mine.
+So, anyone else doesn't know what kind of engine oil my car use. Just I myself can know it and change oil.
+But, we can model it so that any mechanics could change engine oil under my permission.
+That's encapsulation.
+Sometimes I need to have both of my cars inspected for registration.
+I can say just "Please have my cars inspected for registration next year". They're just cars.
+But, each car could be inspected individually. This is polymorphism by overriding
+plus, I can just changeOil(), but also I can changeOil(specific oilbrand).
+This is polymorphism by overloading.
+That's polymorphism.
 
 Q. Read code and determine what is printed from the given code which contains inheritance/overloading. 
 
