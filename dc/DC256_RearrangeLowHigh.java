@@ -48,7 +48,7 @@ public class DC256_RearrangeLowHigh {
 				head.next = next;
 				return head;
 			} else {
-				LinkedNode tmp = head.next;
+				LinkedNode tmp = head;
 				head.next = next.next;
 				next.next = tmp;
 				return next;
