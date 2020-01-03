@@ -26,11 +26,8 @@ public class SelfFill {
 		SelfFill sf3 = new SelfFill("k3");
 		map.put("k1", sf); 		
 		map.put("k3", sf3); 		
-		sf.get();
-		sf2.get();
-		sf3.get();
-		System.out.println(sf.key + " : " + sf.value);
-		System.out.println(sf2.key + " : " + sf2.value);
-		System.out.println(sf3.key + " : " + sf3.value);
+		if(sf.get()) System.out.println(sf.key + " : " + sf.value);
+		if(sf2.get()) System.out.println(sf2.key + " : " + sf2.value);
+		if(sf3.get()) System.out.println(sf3.key + " : " + sf3.value);
 	}
 }
