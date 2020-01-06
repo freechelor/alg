@@ -30,6 +30,8 @@ public class Permutation {
 	 * 	So if we already have permutation of a set of n elements, we can get permutation of a set of (n+1) elements by adding a new element and swapping it with other elements.
 	 * 	
 	 * 	TC : O(n!), SC : O(n!)
+	 *
+	 * 	@TODO : what if allowing duplication, e.g. for {1, 2, 3} => {1,1,1}, {2,2,2}, {3,3,3}
 	 **/
 
 	static List<Integer[]> res = new ArrayList<Integer[]>();
@@ -40,7 +42,7 @@ public class Permutation {
 	}
 
 	public static List<Integer[]> getPermutationHelper(Integer[] arr, int s) {
-		if(arr.length-1==s) {
+		if(arr.length==s) {
 			Integer[] clone = new Integer[arr.length];
 			System.arraycopy(arr, 0, clone, 0, arr.length);
 			res.add(clone);
@@ -58,10 +60,43 @@ public class Permutation {
 		return res;
 	}
 
+
+	// for Duplication case
+	// TC : O(n^n), SC : O(n^n)
+	public static List<Integer[]> getPermutationDup(Integer[] arr) {
+		if(arr==null||arr.length==0) return new ArrayList<Integer[]>();
+		return getPermutationDupHelper(new Integer[arr.length], arr, 0);
+	}
+
+	public static List<Integer[]> getPermutationDupHelper(Integer[] arr, Integer[] inArr, int s) {
+		if(arr.length==s) {
+			Integer[] clone = new Integer[arr.length];
+			System.arraycopy(arr, 0, clone, 0, arr.length);
+			res.add(clone);
+			return res;
+		}
+		for(int i=0; i<inArr.length; i++) {
+			arr[s] = inArr[i];
+			getPermutationDupHelper(arr, inArr, s+1);
+		}	
+		return res;
+	}
+
 	public static void main(String[] args) {
-		Integer[] arr = new Integer[] { 1, 2, 3, 4};
-		List<Integer[]> res = getPermuation(arr);
-		for(Integer[] rArr : res) {
+		Integer[] arr = new Integer[] { 1, 2, 3};
+		List<Integer[]> result = getPermuation(arr);
+		System.out.println("# of cases : " + result.size());
+		for(Integer[] rArr : result) {
+			for(int e : rArr) {
+				System.out.print(e + ",");
+			}
+			System.out.println();
+		}
+		System.out.println("Permutation duplicated");
+		res = new ArrayList<Integer[]>();
+		List<Integer[]> result2 = getPermutationDup(arr);
+		System.out.println("# of cases : " + result2.size());
+		for(Integer[] rArr : result2) {
 			for(int e : rArr) {
 				System.out.print(e + ",");
 			}
