@@ -47,13 +47,16 @@ public class DC263_CheckSentenceFromStream {
 		if(isUpper(c)) {
 			stc += c;
 			state = 1;
+
 		} else if(isTerminal(c)&&state==2) {
-			System.out.println(stc+c);
+			System.out.println(stc);
 			stc = "";
 			state = 0;
-		} else if(isLower(c)&&(state==1||state==2)) {
+
+		} else if(isLower(c)&&(state==1||state==2||state==3)) {
 			stc += c;
 			state = 2;
+
 		} else if(c==' ') {
 			if(state==1||state==2) {
 				stc += " ";
@@ -89,12 +92,13 @@ public class DC263_CheckSentenceFromStream {
 		while(true) {
 			Scanner sc = new Scanner(System.in);
 			while(sc.hasNext()) {
-				String str = sc.next();
+				String str = sc.nextLine();
 				int len = str.length();
 				for(int i=0; i<len; i++) {
 					checkSentence(str.charAt(i));
 				}
 			}
+			System.out.println();
 		}
 	}
 }
