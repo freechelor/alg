@@ -26,7 +26,30 @@ For example, starting with the word "APPLE", you can add an "A" and anagram to g
 
 Given a dictionary of words and an input word, create a function that returns all valid step words.
  */
-public class DC266 {
+public class DC266_ValidStepWord {
+	/**
+	 * 1. 
+	 * 		Anagramming means we can change order of character in a word.
+	 * 		So, if we have the same number of individual character from 2 words, we can make the words the same.
+	 * 		first, sort each word in a dictionary, 
+	 * 		second, add a letter and sort the word
+	 * 		third, find it from the dictionary which has sorted characters.
+	 * 		TC : O(m log n), where m is the number of words in the dictionary and n is the longest word.
+	 * 			 because I have to sort all the words in dictionary (m log n)
+	 * 			 and I have to sort a given word (log gw), where a length of a given word is gw
+	 * 		SC : O(log n), where n is the longest word in the dictionary and we need space complexity for sorting itself
+	 * 		https://www.bigocheatsheet.com/
+	 * 		TODO: there's another thing that I missed. you need to find which letter you should add to a given word.
+	*/
+
+	public String[] findValidStepWords(String[] dic
 	public static void main(String[] args) {
+		String word = args[0];
+		String[] dic = new String[] { "appeal", "" };
+		String[] res = findValidStepWords(dic, word);
+		for(String r : res) {
+			System.out.print( r + " ");
+		}
+		System.out.println();
 	}
 }
