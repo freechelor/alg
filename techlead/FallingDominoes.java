@@ -43,20 +43,12 @@ public class FallingDominoes {
 		int[] left = new int[pos.length()];
 		int[] right = new int[pos.length()];
 		for(int i=0; i<pos.length(); i++) {
-			if(i==0) {
-				if(pos.charAt(i)=='R') {
-					right[i]=1;
-				} else if(pos.charAt(i)=='L') {
-					right[i]=0;
-				}
-				continue;
-			}
 			if(pos.charAt(i)=='R') {
 				right[i]=1;
 			} else if(pos.charAt(i)=='L') {
 				if(right[i-1]>0) right[i] = right[i-1] + 1;
-				right[i+1]=0;
 			} else {
+				if(i==0) { right[i]=0; continue; }
 				if(pos.charAt(i-1)=='L') right[i] = 0;
 				else if(right[i-1]>0) right[i] = right[i-1] + 1;
 			}
@@ -66,23 +58,15 @@ public class FallingDominoes {
 		}
 		System.out.println();
 
-		for(int j=pos.length()-1; j>0; j--) {
-			if(j==pos.length()-1) {
-				if(pos.charAt(j)=='L') {
-					left[j]=-1;
-				} else if(pos.charAt(j)=='R') {
-					left[j]=0;
-				}
-				continue;
-			}
+		for(int j=pos.length()-1; j>=0; j--) {
 			if(pos.charAt(j)=='L') {
-				left[j] = -1;
+				left[j] = 1;
 			} else if(pos.charAt(j)=='R') {
-				if(left[j+1]<0) left[j] = left[j+1] - 1;
-				left[j-1] = 0;
+				if(left[j+1]>0) left[j] = left[j+1] + 1;
 			} else {
+				if(j==pos.length()-1) { left[j] = 0; continue; }
 				if(pos.charAt(j+1)=='R') left[j] = 0;
-				else if(left[j+1]<0) left[j] = left[j+1] - 1;
+				else if(left[j+1]>0) left[j] = left[j+1] + 1;
 			}
 		}
 		for(int i=0; i<left.length; i++) {
@@ -90,14 +74,17 @@ public class FallingDominoes {
 		}
 		System.out.println();
 		for(int i=0; i<pos.length(); i++) {
+			if(pos.charAt(i)=='R'||pos.charAt(i)=='L') { System.out.print(pos.charAt(i)); continue; }
 			if(left[i]==0 && right[i]==0) System.out.print(".");
 			else if(right[i]==0) {
 				System.out.print("L");
 			} else if(left[i]==0) {
 				System.out.print("R");
-			} else if(left[i]+right[i]==0) System.out.print(".");
-			else if(left[i]+right[i]>0) System.out.print("L");
-			else System.out.print("R");
+			} else {
+				if(right[i]-left[i]==0) System.out.print(".");
+				else if(right[i]-left[i]>0) System.out.print("L");
+				else System.out.print("R");
+			}
 		}
 	}
 
@@ -133,6 +120,10 @@ public class FallingDominoes {
 
 	public static void main(String[] args) {
 		String given = "..R...L..R.";
-		decidePositionBydistance(given);
+		System.out.println("\nINPUT : " + given);
+		decidePosition(given);
+		given = "..RR...L..R..L..L..R.L.R.LL..R.";
+		System.out.println("\nINPUT : " + given);
+		decidePosition(given);
 	}
 }
