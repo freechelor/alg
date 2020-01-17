@@ -17,6 +17,8 @@ import java.util.List;
 import java.util.Collections;
 import java.util.Stack;
 import java.util.Queue;
+import java.util.Set;
+import java.util.Map;
 import alg.list.Node;
 
 /**
@@ -52,8 +54,8 @@ public class RemoveSumTo0 {
 		}
 		Set<Map.Entry<Integer, Pair>> set = map.entrySet();
 		int max = 0;
-		int start;
-		int end;
+		int start = -1;
+		int end = -1;
 		for(Map.Entry<Integer, Pair> entry : set) {
 			Pair e = entry.getValue();
 			if(max<(e.end-e.start)) {
@@ -67,7 +69,7 @@ public class RemoveSumTo0 {
 			first = first.next;
 			last = last.next;
 		}
-		while(cnt<end) {
+		while(cnt++<end) {
 			last = last.next;
 		}
 		first.next = last;
@@ -90,7 +92,8 @@ public class RemoveSumTo0 {
 		n6.next = n7;
 		Node r = removeConsecutiveZero(n);
 		while(r!=null) {
-			System.out.print(r.val + "->" );
+			System.out.print(r.value + "->" );
+			r = r.next;
 		}
 	}
 
