@@ -35,6 +35,7 @@ The consecutive nodes 5 -> -3 -> -3 -> 1 sums up to 0 so that sequence should be
 */
 public class RemoveSumTo0 {
 	static HashMap<Integer, Pair> map = new HashMap<>();
+	// TC : O(n), SC : O(n)
 	public static Node removeConsecutiveZero(Node head) {
 		Node fixHead = head;
 		Node first = head;
@@ -45,9 +46,10 @@ public class RemoveSumTo0 {
 			sum += head.value;
 			Pair p;
 			if((p=map.get(sum))!=null) {
-				if(p.end<0) p.end=idx;
+				p.end=idx;
 			} else {
 				p = new Pair(idx, -1);
+				map.put(sum, p);
 			}
 			head = head.next;
 			idx++;
@@ -58,26 +60,31 @@ public class RemoveSumTo0 {
 		int end = -1;
 		for(Map.Entry<Integer, Pair> entry : set) {
 			Pair e = entry.getValue();
-			if(max<(e.end-e.start)) {
+			System.out.println(entry.getKey() + "," + e.start + ":"+e.end +")");
+			if(e.end>=0&&max<(e.end-e.start)) {
 				max = e.end - e.start;
 				start = e.start;
 				end = e.end;
 			}
 		}
+		System.out.println("start : " + start + ", end : " + end);
 		int cnt = 0;
-		while(cnt++<=start) {
+		while(cnt++<start) {
 			first = first.next;
 			last = last.next;
 		}
+		System.out.println("first : " + first.value);
+		cnt = 0;
 		while(cnt++<end) {
 			last = last.next;
 		}
-		first.next = last;
+		System.out.println("last : " + last.value);
+		first.next = last.next;
 		return fixHead;
 	}
 
 	public static void main(String[] args) {
-		Node n = new Node(10);
+		Node n = new Node(9);
 		Node n2 = new Node(5);
 		Node n3 = new Node(-3);
 		Node n4 = new Node(-3);
@@ -98,8 +105,8 @@ public class RemoveSumTo0 {
 	}
 
 	static class Pair {
-		int start;
-		int end;
+		int start = -1;
+		int end = -1;
 		public Pair(int s, int e) {
 			this.start = s;
 			this.end = e;
