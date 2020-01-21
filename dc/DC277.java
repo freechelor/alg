@@ -56,6 +56,7 @@ public class DC277 {
 			if(arr.length==1) return true;
 			else return false;
 		}
+		if(cnt>4) return false;
 		if(cnt-1!=arr.length-1) return false;
 		for(int i=1; i<arr.length; i++) {
 			if((b&arr[i])!=arr[i]) return false;
@@ -68,9 +69,11 @@ public class DC277 {
 		int[] arr2 = new int[] {0b11011100, 0b11111010};
 		int[] arr3 = new int[] {0b11101100, 0b10101010, 0b10001100};
 		int[] arr4 = new int[] {0b11110100, 0b10101010, 0b10001100, 0b10110110};
+		int[] arr5 = new int[] {0b11111100, 0b10101010, 0b10001100, 0b10110110};
 		System.out.println(isValid(arr));
 		System.out.println(isValid(arr2));
 		System.out.println(isValid(arr3));
 		System.out.println(isValid(arr4));
+		System.out.println(isValid(arr5));
 	}
 }
