@@ -30,6 +30,7 @@ public class DC278 {
 	// There are 3 cases at a node.
 	// One case is that a node has 2 children. Other is that a node has only left child.
 	// And the other is that a node has only right child.
+	// ... probably lost the way
 	public static void getTrees(int n, TreeNode head, TreeNode cur, List<TreeNode> list) {
 		if(n==0) { list.add(head); return; }
 		// only left
@@ -38,6 +39,18 @@ public class DC278 {
 		head
 		cur.left = left;
 		cur.right = right;
+	}
+
+	public static TreeNode getTreeset(int n, int low, int high) {
+		while(low>high) return null;
+		for(int i=low; i<high; i++) {
+			TreeNode head = new TreeNode(i);
+			TreeNode left = getTreeset(n-1, low, i);	
+			TreeNode right = getTreeset(n-1, i+1, high);	
+			head.left = left;
+			head.right = right;
+			return head;
+		}
 	}
 	
 	public static void main(String[] args) {
