@@ -36,23 +36,65 @@ public class DC278 {
 		// only left
 		TreeNode left = new TreeNode(0);
 		TreeNode right = new TreeNode(0);
-		head
-		cur.left = left;
-		cur.right = right;
 	}
 
-	public static TreeNode getTreeset(int n, int low, int high) {
-		while(low>high) return null;
-		for(int i=low; i<high; i++) {
-			TreeNode head = new TreeNode(i);
-			TreeNode left = getTreeset(n-1, low, i);	
-			TreeNode right = getTreeset(n-1, i+1, high);	
-			head.left = left;
-			head.right = right;
-			return head;
+	public static List<TreeNode> getTreeset(int low, int high) {
+		List<TreeNode> list = new ArrayList<TreeNode>();
+		if(low>high) {
+			list.add(null);
 		}
+		for(int i=low; i<=high; i++) {
+			List<TreeNode> left = getTreeset(low, i-1);	
+			List<TreeNode> right = getTreeset(i+1, high);	
+
+			if(left==null&&right==null) {
+				TreeNode head = new TreeNode(i);
+				head.left = null;
+				head.right = null;
+			}
+			else if(left==null) {
+				for(int r=0; r<right.size(); r++) {
+					TreeNode head = new TreeNode(i);
+					head.left = null;
+					head.right = right.get(r);
+					list.add(head);
+				}
+			} else if(right==null) {
+				for(int l=0; l<left.size(); l++) {
+					TreeNode head = new TreeNode(i);
+					head.left = left.get(l);
+					head.right = null;
+					list.add(head);
+				}
+			} else {
+				for(int l=0; l<left.size(); l++) {
+					for(int r=0; r<right.size(); r++) {
+						TreeNode head = new TreeNode(i);
+						head.left = left.get(l);
+						head.right = right.get(r);
+						list.add(head);
+					}
+				}
+			}
+		}
+		return list;
 	}
 	
+	public static void printTree(TreeNode node) {
+		if(node==null) return;
+		System.out.println(node.value);
+		printTree(node.left);
+		printTree(node.right);
+	}
+
 	public static void main(String[] args) {
+		int n = 5;
+		List<TreeNode> list = getTreeset(1, n);
+		System.out.println("size of list : " + list.size());
+		for(TreeNode head : list) {
+			System.out.println("========================================");
+			printTree(head);
+
+		}
 	}
 }
